@@ -1440,3 +1440,6 @@ The API satisfies the main requirements when the team can demonstrate:
 * Response models remain on every endpoint that returns product or category data.
 * The Postman collection includes successful and unsuccessful requests for each endpoint.
 * The README documents the product and category endpoints.
+
+August 5, 2026
+Connect to Azure

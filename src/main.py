@@ -276,14 +276,24 @@ def filter_products(
     Returns:
         A list of products matching the specified filters.
     """
+
     repository = ProductRepository(db)
-    return repository.search_products(
+
+    products = repository.search_products(
         name=name,
         unit=unit,
         cost_per_unit=cost_per_unit,
         price_per_unit=price_per_unit,
         quantity_in_stock=quantity_in_stock,
     )
+
+    if not products:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No products found matching the specified filters."
+        )
+
+    return products
 
 
 @app.delete("/products/{product_id}")
